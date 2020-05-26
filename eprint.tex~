@@ -1,0 +1,223 @@
+%  sample eprint article in LaTeX           --- M. Peskin, 9/7/00
+%  modified for CTD2020, ctd2020-loc@iris-hep.org
+%  This file is part of a tar file, which can be downloaded from the CTD2020 indico site. 
+%  https://indico.cern.ch/event/742793/
+%
+\documentclass[10pt, paper=a4, UKenglish]{article}
+\usepackage{graphicx}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   document style macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Title#1{\begin{center} {\Large #1 } \end{center}}
+\def\Author#1{\begin{center}{ \sc #1} \end{center}}
+\def\Address#1{\begin{center}{ \it #1} \end{center}}
+\def\andauth{\begin{center}{and} \end{center}}
+\def\submit#1{\begin{center}Submitted to {\sl #1} \end{center}}
+\newcommand\pubblock{\rightline{\begin{tabular}{l} Proceedings of the CTD 2020\\ \pubnumber\\
+         \pubdate  \end{tabular}}}
+
+\newenvironment{Abstract}{\begin{quotation} \begin{center} 
+             \large ABSTRACT \end{center}\bigskip 
+      \begin{center}\begin{large}}{\end{large}\end{center} \end{quotation}}
+
+\newenvironment{Presented}{\begin{quotation} \begin{center} 
+             PRESENTED AT\end{center}\bigskip 
+      \begin{center}\begin{large}}{\end{large}\end{center} \end{quotation}}
+
+\def\Acknowledgements{\bigskip  \bigskip \begin{center} \begin{large}
+      \bf ACKNOWLEDGEMENTS \end{large}\end{center}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%  personal abbreviations and macros
+%    the following package contains macros used in this document:
+\input econfmacros.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textwidth=6.5in
+\textheight=8.75in
+\hoffset=-0.85in
+\voffset=-0.6in
+
+%%  DO NOT CHANGE anything above.
+
+% include packages you will need
+\usepackage{color}
+\usepackage{lineno}
+\usepackage{subfig}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% basic data for the eprint:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% preprint number data:
+% Please replace XX by your contribution number in indico (a number between 01 to 62)
+\newcommand\pubnumber{PROC-CTD2020-XX}
+
+%% date
+\newcommand\pubdate{\today}
+
+%%  Affiliation
+\def\affiliation{
+On behalf of XYZ, \\
+Department of Physics \\
+XYZ University, Country}
+
+%% Acknowledge the support
+\def\support{\footnote{Work supported by  XYZ Foundation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\conference}{Connecting the Dots Workshop (CTD 2020)\\
+April 20-30, 2020}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\definecolor{mygrey}{RGB}{105,105,105}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% \fancyhead[R]{\fontsize{8}{9} \color{mygrey} \selectfont  CTD 2020 \\}
+\fancyhead[C]{\fontsize{7}{8} \color{mygrey} \selectfont Connecting
+  the Dots. April 20-30, 2020\\}
+\fancyfoot[C]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% uncomment the following line for adding line numbers
+% \linenumbers
+
+% large size for the first page
+\large
+\begin{titlepage}
+\pubblock
+
+%% Change the title, name, abstract
+%% Title 
+\vfill
+\Title{The Title of your Proceedings}
+\vfill
+
+%  if you need to add the support use this, fill the \support definition above. 
+%  \Author{FIRSTNAME LASTNAME \support}
+\Author{Firstname Lastname}
+\Address{\affiliation}
+\vfill
+
+\begin{Abstract}
+Here is your abstract. Replace the text.
+\end{Abstract}
+
+\vfill
+
+% DO NOT CHANGE!!!
+\begin{Presented}
+\conference
+\end{Presented}
+\vfill
+\end{titlepage}
+\def\thefootnote{\fnsymbol{footnote}}
+\setcounter{footnote}{0}
+%
+
+% normal size for the rest
+\normalsize 
+
+%% Your paper should be entered below. 
+
+\section{Introduction}
+\label{intro}
+
+Here is your Introduction. Replace the text.
+
+\section{Section}
+\label{section}
+
+Replace the text.
+
+\section{Subsection}
+\label{subsection}
+
+Replace the text \cite{example}, Figure~\ref{fig:picture},
+Figures~\ref{fig:pictures}(a--b) and Table~\ref{tab:table1}.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   use this format to include an .eps or .pdf figure(s) into your paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% feel free to set the height or width as you prefer
+\begin{figure}[!htb]
+  \centering
+  % \includegraphics[height=2in]{picture}
+  \includegraphics[width=0.25\linewidth]{picture}
+  \caption{My caption here. Replace the text.}
+  \label{fig:picture}
+\end{figure}
+
+% set the height or width as you prefer
+\begin{figure}[!htb]
+  \centering
+  \subfloat[]{\includegraphics[width=0.25\linewidth]{picture}}
+  \qquad
+  \subfloat[]{\includegraphics[width=0.25\linewidth]{picture}}
+  \caption{My caption shows (a) here and (b) there. Replace the text.}
+  \label{fig:pictures}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% use this format to include a LaTeX table into your proceedings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{l|ccc}
+      \hline
+      \hline
+      X &  Y & Z & M \\
+      \hline
+      1.0 &  2.0  &  3.0 & 4.0 \\
+      1.0 &  2.0  &  3.0 & 4.0 \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{Place the caption here. Replace the text.}
+    \label{tab:table1}
+  \end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusions}
+
+Here is your conclusions. Replace the text.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+%%  if necessary
+\Acknowledgements
+I am grateful to XYZ for fruitful discussions. Replace the text.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{99}
+
+%%
+%%  bibliographic items can be constructed using the LaTeX format in SPIRES:
+%%    see    http://www.slac.stanford.edu/spires/hep/latex.html
+%%  SPIRES will also supply the CITATION line information; please include it.
+%%
+
+\bibitem{example} 
+  Author 1,
+  "Article title,''
+  Journal {\bf Volume}, Pages (Year)
+  [arXiv:XXXX.YYYY [ZZZZ]].
+
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
